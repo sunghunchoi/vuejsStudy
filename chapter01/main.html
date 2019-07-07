@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 데이터 바인딩 -->
+        <p>{{ message }}</p>
+        <!-- 반복 렌더링-->
+        <ol>
+            <li v-for="fruit in list">{{ fruit }}</li>
+        </ol>
+        <!-- 이벤트 핸들링-->
+        <button v-on:click="handleClick">Click</button>
+    </div>
+    <div id="inputapp">
+        <!-- 입력양식과 동기화 -->
+        <div>
+            <p>{{ message }}</p>
+        </div>
+        <input v-model = "message">
+        <div>
+            {{ count }}
+        </div>
+        <input v-model.number = "count">
+        <!-- 조건 분기-->
+        <p v-if = "show">v-if Show == true </p>
+        <p v-if = "show">v-if Show == true </p>
+        <!-- 이벤트 핸들링 -->
+        <button v-on:click="showClick">Show?!</button>
+    </div>
+    <!-- 트랜지션과 애니메이션-->
+    <div id="tranapp">
+        <button v-on:click="show!=show">변경하기</button>
+        <transition>
+            <p v-if="show">Hello Vue.js Transition!</p>
+        </transition>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
