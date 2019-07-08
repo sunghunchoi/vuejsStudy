@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <p>{{ message.value }}</p>
+        <p>{{ message.value.length }}</p>
+        <p>{{ list[2] }}</p>
+        <p>{{ list[num] }}</p>
+        <p>{{ message.value.length >= 10 ? '10글자 이상':'10글자 미만'}}</p>
+        <p>{{ Math.round(3.14)}}</p>
+        <input type="text" v-bind:value="message.value">
+        <br>
+        <input type="text" :value="message.value">
+        <br>
+        <div v-bind:text-content.prop = "message.value">
+        <div v-bind:scroll-top.prop = "scroll"></div>
+        </div>
+    </div>
+    <div id="clickApp">
+        <!-- count 속성 출력하기 -->
+        <p>{{ count }}번 클릭 했습니다.</p>
+        <!-- 이 버튼을 클릭하면  increment 메소드가 호출됩니다. -->
+        <button v-on:click="increment">카운트 하기</button>
+        <button v-on:click="reset">카운트 리셋 하기</button>
+        <p v-bind:class = "{ child:isChild, 'is-active':isActive }">Text</p>
+        <p v-bind:style = "{ color:textColor, backgroundColor:bgColor }">Text2</p>
+        <!-- 객체 데이터로 전달 받기-->
+        <p v-bind:class = "classObject">Text3</p>
+        <p v-bind:style = "styleObject">Text4</p>
+    </div>
+    <div id="svgApp">
+        <svg xmlns="http://www.w3.org/2000/svg" version ="1.1">
+            <circle cx = "100" cy = "75" v-bind:r="radius" fill="lightpink"></circle>
+        </svg>
+        <input type="range" min="0" max="100" v-model="radius">
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
